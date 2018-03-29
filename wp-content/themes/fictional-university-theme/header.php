@@ -18,19 +18,20 @@
 	      <div class="site-header__menu group">
 	        <nav class="main-navigation">
 
-
+<!-- 
 	        <?php
-	        	wp_nav_menu(array(
-	        		'theme_location' => 'headerMenuLocation'
-	        	));
-	        ?>
-	          <!-- <ul>
-	            <li><a href="<?php echo site_url('/about-us'); ?>">About Us</a></li>
+	        	// wp_nav_menu(array(
+	        	// 	'theme_location' => 'headerMenuLocation'
+	        	// ));
+	        ?> -->
+	           <ul>
+	           	<!-- if the corrent page is about ous page or if the current pages parent page is about us page echo out the class -->
+	            <li <?php if ( is_page('about-us') or wp_get_post_parent_id(0) ==15 ) echo  'class="current-menu-item"' ?> ><a href="<?php echo site_url('/about-us'); ?>">About Us</a></li>
 	            <li><a href="#">Programs</a></li>
 	            <li><a href="#">Events</a></li>
 	            <li><a href="#">Campuses</a></li>
 	            <li><a href="#">Blog</a></li>
-	          </ul> -->
+	          </ul> 
 	        </nav>
 	        <div class="site-header__util">
 	          <a href="#" class="btn btn--small btn--orange float-left push-right">Login</a>
