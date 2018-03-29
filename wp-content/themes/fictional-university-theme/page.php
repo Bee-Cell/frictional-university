@@ -61,8 +61,6 @@
                 $findChildrenOF = get_the_ID();
               }
 
-
-
               //for listing pages 
             wp_list_pages(array(
               'title_li' => NULL, //no need page ttile"
