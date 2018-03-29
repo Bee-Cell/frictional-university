@@ -18,4 +18,15 @@ function university_files(){
 //for css loadng scripts css
 add_action('wp_enqueue_scripts', 'university_files');
 
+
+//-------------------------------
+//title 
+ function university_features(){
+ 	add_theme_support('title-tag');
+ }
+
+
+//for title
+add_action('after_setup_theme','university_features');
+
 ?>
