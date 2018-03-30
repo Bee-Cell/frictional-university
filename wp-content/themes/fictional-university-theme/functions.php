@@ -28,12 +28,11 @@ add_action('wp_enqueue_scripts', 'university_files');
  	// //register menu location for footer 
  	// register_nav_menu('footerLocationOne', 'Footer Location one');
  	// register_nav_menu('footerLocationTwo', 'Footer Location Two');
-
+}
  	add_theme_support('title-tag');
- }
 
 
-//for title
-add_action('after_setup_theme','university_features');
+
+
 
 ?>
