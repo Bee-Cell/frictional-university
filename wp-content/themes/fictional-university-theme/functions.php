@@ -1,5 +1,5 @@
 <?php
-
+//--------------------------------------------
 //to load java scrits css files
 function university_files(){
 
@@ -20,7 +20,7 @@ add_action('wp_enqueue_scripts', 'university_files');
 
 
 //-------------------------------
-//title 
+//menu s
  function university_features(){
  	//register menu location for header
  	// register_nav_menu('headerMenuLocation', 'Header Menu Location');
@@ -29,6 +29,7 @@ add_action('wp_enqueue_scripts', 'university_files');
  	// register_nav_menu('footerLocationOne', 'Footer Location one');
  	// register_nav_menu('footerLocationTwo', 'Footer Location Two');
 }
+	//menus
  	add_theme_support('title-tag');
 
 

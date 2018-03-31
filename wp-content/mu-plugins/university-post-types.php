@@ -7,6 +7,9 @@ function university_post_types(){
 	//events are controlled by theme so not the best place to keep the 
 	register_post_type('event', array(
 		//to find the parameters we can google for register post types
+			'rewrite' => array(
+			 				'slug' => 'events'), //for chnging the slug 
+			'has_archive' => true, //for archive  if dont show archive setting and savechanges the permalinks  structure  without editing  
 			'public' => true, //make visisble to all
 			'labels' => array(
 				'name' => 'Events', //naming 
@@ -16,7 +19,10 @@ function university_post_types(){
 				'singular_name' => 'Event'
 
 			),
-			'menu_icon' => 'dashicons-calendar'  //google wordpress dashicon
+			'menu_icon' => 'dashicons-calendar',  //google wordpress dashicon
+
+			// flush_rewrite_rules( false );
+
 		));
 }
 
