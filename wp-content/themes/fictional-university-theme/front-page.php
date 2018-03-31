@@ -19,9 +19,25 @@
 
        <?php
 
+       $today = date('Ymd');
+
           $homepageEvents = new WP_Query(array(
-            'posts_per_page' => 2,
-            'post_type' => 'event'
+            'posts_per_page' => -1, //-1 will give all details
+            'post_type' => 'event',
+            'meta_key' => 'event_date',
+            //meta data is extra custom data asocated with post 
+            'orderby' => 'meta_value_num', //meta_value is only for alphabate
+            //default 'post_date' is we switch random  'rand'
+            'order' => 'ASC', //DESC is default 
+            //meta_query for custom 
+            'meta_query' => array(
+                array(
+                  'key' => 'event_date', //only event_date
+                  'compare' => '>=', //is greater then or eqaul to 
+                  'value' => $today, //today date
+                  'type' => 'numeric'
+                )
+              )
           ));
 
           while ($homepageEvents->have_posts()) {
@@ -29,8 +45,15 @@
 
               <div class="event-summary">
                 <a class="event-summary__date t-center" href="<?php the_permalink(); ?>">
-                  <span class="event-summary__month">Apr</span>
-                  <span class="event-summary__day">02</span>  
+                  <span class="event-summary__month"><?php 
+
+                    
+                    $eventDate = new DateTime(get_field('event_date'));
+                    echo $eventDate->format('M');
+                    
+
+                   ?></span>
+                  <span class="event-summary__day"><?php echo $eventDate->format('d'); ?></span>  
                 </a>
                 <div class="event-summary__content">
                   <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink(); ?>"><?php the_title();  ?></a></h5>

@@ -8,7 +8,7 @@ function university_post_types(){
 	register_post_type('event', array(
 		//to find the parameters we can google for register post types
 			'supports'=> array(
-						'title', 'editor', 'excerpt'),
+						'title', 'editor', 'excerpt'), //title and editor are the default
 			'rewrite' => array(
 			 				'slug' => 'events'), //for chnging the slug 
 			'has_archive' => true, //for archive  if dont show archive setting and savechanges the permalinks  structure  without editing  
