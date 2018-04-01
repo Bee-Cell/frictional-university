@@ -32,6 +32,7 @@ add_action('wp_enqueue_scripts', 'university_files');
 	
  	add_theme_support('title-tag'); //for excerpt for blog only
  	add_theme_support('post-thumbnails'); //feature image it enable only for blog post but to the plugins w created 
+ 	//two new images sizes
  	add_image_size('professorLandscape', 400,260, true); //nickname and size and croping ture or false
  	add_image_size('professorPortrait', 480, 650, true);
 
