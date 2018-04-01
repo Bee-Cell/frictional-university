@@ -52,6 +52,26 @@ function university_post_types(){
 
 		));
 
+		//profressor post type
+		register_post_type('professor', array(
+		//to find the parameters we can google for register post types
+			'supports'=> array(
+						'title', 'editor'), //title and editor are the default
+			'public' => true, //make visisble to all
+			'labels' => array(
+				'name' => 'Professors', //naming 
+				'add_new_item' => 'Add New Professor', //for chnging add new post
+				'edit_item' => 'Edit Professor',
+				'all_items' => 'All Professors',
+				'singular_name' => 'Professor'
+
+			),
+			'menu_icon' => 'dashicons-welcome-learn-more',  //google wordpress dashicon
+
+			// flush_rewrite_rules( false );
+
+		));
+
 
 
 }
