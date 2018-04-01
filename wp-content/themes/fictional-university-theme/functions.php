@@ -32,8 +32,30 @@ add_action('wp_enqueue_scripts', 'university_files');
 	//menus
  	add_theme_support('title-tag');
 
+//wp pass $query
+function university_adjust_queries($query){
+	if (!is_admin() AND is_post_type_archive('event') AND 
+		$query->is_main_query()) {
+		 $today = date('Ymd');
+		$query->set('meta_key' , 'event_date');
+		$query->set('order_by' , 'meta_value_num');
+		$query->set('order' , 'ASC');
+		$query->set('meta_query' , array(
+                array(
+                  'key' => 'event_date',
+                  'compare' => '>=',
+                  'value' => $today, 
+                  'type' => 'numeric'
+                )
+              ));
+
+	} 
+	
+}
 
 
+//for twiking the event post type
+ 	add_action('pre_get_posts', 'university_adjust_queries'); //it  wworks before default wp query
 
 
 ?>

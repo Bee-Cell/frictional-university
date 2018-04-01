@@ -1,4 +1,6 @@
-<!-- for showing the all events in another pages -->
+<!-- from page past- events -->
+
+
 <?php 
  
   get_header(); ?>
@@ -6,19 +8,41 @@
   <div class="page-banner">
     <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri("/assets/images/ocean.jpg") ?>);"></div>
     <div class="page-banner__content container container--narrow">
-      <h1 class="page-banner__title"> All Events</h1>
+      <h1 class="page-banner__title"> Past Events</h1>
       <div class="page-banner__intro">
-        <p>see what is going in our world...</p>
+        <p>Recap of our past event</p>
       </div>
     </div>  
   </div>
 
   <div class="container container--narrow page-section">
     <?php
+    	//custom queriss is needed 
 
-      //we dont need custom query but we can do with wp default url based query but we need twik and change
-      while (have_posts()){
-        the_post(); ?>
+    	$today = date('Ymd');
+
+          $pastEVents = new WP_Query(array(
+          	'paged' => get_query_var('paged', 1),
+          	// 'posts_per_page' => 1,
+            'post_type' => 'event',
+            'meta_key' => 'event_date',
+            //meta data is extra custom data asocated with post 
+            'orderby' => 'meta_value_num', //meta_value is only for alphabate
+            //default 'post_date' is we switch random  'rand'
+            'order' => 'ASC', //DESC is default 
+            //meta_query for custom 
+            'meta_query' => array(
+                array(
+                  'key' => 'event_date', //only event_date
+                  'compare' => '<', //is greater then or eqaul to 
+                  'value' => $today, //today date
+                  'type' => 'numeric'
+                )
+              )
+          ));
+
+      while ($pastEVents->have_posts()){
+        $pastEVents->the_post(); ?>
 
       <div class="event-summary">
                <a class="event-summary__date t-center" href="<?php the_permalink(); ?>">
@@ -40,12 +64,11 @@
     <?php
       }
 
-      //pagination links
-      echo paginate_links();
+      //pagination links for ustom queries and custom page
+      echo paginate_links(array(
+      	'total' => $pastEVents->max_num_pages
+      ));
     ?>
-    <hr class="section-break">
-
-    <p>looking for a recap of past events ? <a href="<?php echo site_url('/past-events') ?>"> check  out our past events archive</a> </p>
   </div>
 
 
