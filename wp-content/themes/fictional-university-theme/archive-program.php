@@ -3,17 +3,15 @@
 
 <?php 
  
-  get_header(); ?>
+  get_header(); 
+  pageBanner(array(
+    'title' => 'All Programs',
+    'subtitle'=> 'The is something for veyone. have a loook around..'
+  ));
 
-  <div class="page-banner">
-    <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri("/assets/images/ocean.jpg") ?>);"></div>
-    <div class="page-banner__content container container--narrow">
-      <h1 class="page-banner__title"> All programs</h1>
-      <div class="page-banner__intro">
-        <p>The is something for veyone. have a loook around</p>
-      </div>
-    </div>  
-  </div>
+  ?>
+
+
 
   <div class="container container--narrow page-section">
 
