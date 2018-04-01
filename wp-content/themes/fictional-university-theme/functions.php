@@ -116,6 +116,13 @@ function university_adjust_queries($query){
 
 //for twiking the event post type
  	add_action('pre_get_posts', 'university_adjust_queries'); //it  wworks before default wp query
+//---------------------------------------
+//for google map key api
+ 	function universityMapKey($api){
+ 		$api['key'] = 'AIzaSyDAULTX8Dia0xqxV4hu6DawbLHHiMd_pCA';
+ 		return $api;
+ 	}
 
+add_filter('acf/fields/google_map/api', 'universityMapKey' );
 
 ?>

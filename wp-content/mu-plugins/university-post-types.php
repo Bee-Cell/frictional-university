@@ -72,6 +72,28 @@ function university_post_types(){
 
 		));
 
+		register_post_type('campus', array(
+		//to find the parameters we can google for register post types
+			'supports'=> array(
+						'title', 'editor', 'excerpt'), //title and editor are the default
+			'rewrite' => array(
+			 				'slug' => 'campuses'), //for chnging the slug 
+			'has_archive' => true, //for archive  if dont show archive setting and savechanges the permalinks  structure  without editing  
+			'public' => true, //make visisble to all
+			'labels' => array(
+				'name' => 'Campuses', //naming 
+				'add_new_item' => 'Add New Campus', //for chnging add new post
+				'edit_item' => 'Edit Campus',
+				'all_items' => 'All Campuses',
+				'singular_name' => 'Campus'
+
+			),
+			'menu_icon' => 'dashicons-location-alt',  //google wordpress dashicon
+
+			// flush_rewrite_rules( false );
+
+		));
+
 
 
 }
