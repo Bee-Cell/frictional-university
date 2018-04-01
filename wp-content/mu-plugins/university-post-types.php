@@ -1,7 +1,7 @@
 <?php
 
-//for title
-add_action('after_setup_theme','university_features');
+
+
 
 function university_post_types(){
 	//events are controlled by theme so not the best place to keep the 
@@ -56,7 +56,7 @@ function university_post_types(){
 		register_post_type('professor', array(
 		//to find the parameters we can google for register post types
 			'supports'=> array(
-						'title', 'editor'), //title and editor are the default
+						'title', 'editor', 'thumbnail'), //title and editor are the default
 			'public' => true, //make visisble to all
 			'labels' => array(
 				'name' => 'Professors', //naming 

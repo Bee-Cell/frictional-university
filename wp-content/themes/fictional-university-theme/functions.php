@@ -20,7 +20,7 @@ add_action('wp_enqueue_scripts', 'university_files');
 
 
 //-------------------------------
-//menu s
+//different feature ww wanna support
  function university_features(){
  	//register menu location for header
  	// register_nav_menu('headerMenuLocation', 'Header Menu Location');
@@ -28,10 +28,19 @@ add_action('wp_enqueue_scripts', 'university_files');
  	// //register menu location for footer 
  	// register_nav_menu('footerLocationOne', 'Footer Location one');
  	// register_nav_menu('footerLocationTwo', 'Footer Location Two');
-}
-	//menus
- 	add_theme_support('title-tag');
 
+	
+ 	add_theme_support('title-tag'); //for excerpt for blog only
+ 	add_theme_support('post-thumbnails'); //feature image it enable only for blog post but to the plugins w created 
+ 	add_image_size('professorLandscape', 400,260, true); //nickname and size and croping ture or false
+ 	add_image_size('professorPortrait', 480, 650, true);
+
+ }
+
+ add_action('after_setup_theme','university_features');
+
+
+//------------------------------------------------------
 //wp pass $query
 function university_adjust_queries($query){
 
