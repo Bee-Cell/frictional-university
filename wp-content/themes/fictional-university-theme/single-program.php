@@ -107,6 +107,32 @@ while (have_posts()) {
           } //end while
        }//end if
         wp_reset_postdata();
+        ?>
+        <hr>
+        <?php
+
+        //we dont need custom queries because the custom filed lives here
+        $relatedCampuses = get_field('related_campus');
+        // print_r($relatedCampuses);
+        //only if there are campus to wor with
+        if($relatedCampuses){
+          ?>
+          <h2 class="headline headline--medium"><?php echo get_the_title(); ?> is available at this campuses.</h2>
+          <ul class="min-list link-list">
+          <?php
+            foreach ($relatedCampuses as $campus) {?>
+              <li><a href="<?php echo get_the_permalink($campus); ?>">
+                <?php echo get_the_title($campus); ?>
+              </a></li>
+               <?php
+           }
+            ?>
+
+          </ul>
+          <?php
+        }
+
+
 
        ?>
 	  </div> <!-- container -->

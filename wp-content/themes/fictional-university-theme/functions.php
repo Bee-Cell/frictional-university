@@ -87,7 +87,7 @@ add_action('wp_enqueue_scripts', 'university_files');
 //wp pass $query
 function university_adjust_queries($query){
 
-	//for 
+	//for  program
 	if(!is_admin() AND is_post_type_archive('program') ANd $query->is_main_query()){
 		$query->set('orderby', 'title');
 		$query->set('order', 'ASC');
@@ -111,6 +111,12 @@ function university_adjust_queries($query){
                   'type' => 'numeric'
                 )
               ));
+
+	}
+	//for camous
+	if(!is_admin() AND is_post_type_archive('campus') ANd $query->is_main_query()){
+		$query->set('posts_per_page', -1);
+
 
 	} 
 	
