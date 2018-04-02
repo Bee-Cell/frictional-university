@@ -41,6 +41,9 @@ function pageBanner($args = NULL){
 //to load java scrits css files
 function university_files(){
 
+	//loading google map js files
+	wp_enqueue_script('googleMap','//maps.googleapis.com/maps/api/js?key=AIzaSyDAULTX8Dia0xqxV4hu6DawbLHHiMd_pCA', NUll, '1.0', true); //true loading in down
+
 	//loading js file
 	wp_enqueue_script('main-university-js', get_theme_file_uri('/assets/js/scripts-bundled.js'), NULL, microtime() , true); //null for depndencies, version 1, load at beging or at last true, false
 
